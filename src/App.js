@@ -195,24 +195,34 @@ function App() {
 
     let newState = [...state];
 
-
-    newState?.forEach((e,i)=>{
-
-        return newState[i]?.replies?.map(()=>{
+    let newArr = newState?.sort(function compare(a,b){
  
-        return   newState[i]?.replies.sort(function compare(a,b){
- 
-          return  asc  ? new Date(a.CreatedAt) - new Date(b.CreatedAt) : new Date(b.CreatedAt) - new Date(a.CreatedAt)
-        });
+           return  asc  ? new Date(a.CreatedAt) - new Date(b.CreatedAt) : new Date(b.CreatedAt) - new Date(a.CreatedAt)
  
       })
-    })
+
+
+      newArr?.forEach((e,i)=>{
+
+        return newArr[i]?.replies?.map(()=>{
+ 
+         return   newArr[i]?.replies.sort(function compare(a,b){
+ 
+          return  asc  ? new Date(a.CreatedAt) - new Date(b.CreatedAt) : new Date(b.CreatedAt) - new Date(a.CreatedAt)
+        })
+
+ 
+  })
+
+}
+  )
+  
+    
 
     setAsc(!asc)
 
-    console.log("new state",asc)
 
-    setState([...newState])
+    setState([...newArr])
 
     
   }
