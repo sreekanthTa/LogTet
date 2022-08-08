@@ -1,0 +1,82 @@
+.card{
+    background-color:#ececf1;
+    /* width: 50%; */
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.childCard{
+    background-color: antiquewhite;
+    /* width: 40%; */
+    text-align: right; 
+    /* float: right; */
+    /* clear:right */
+}
+
+.commentHeder{
+    display: flex;
+    justify-content: space-between;
+}
+ 
+.comInputField{
+    outline: none;
+    border: 0px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.cardDetails{
+    position: relative;
+    /* width: 100%; */
+
+}
+.dButton{
+    display: block;
+    position:absolute;
+    top: 40%;
+    left: 101%;
+    transform:translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+}
+.actButton{
+    outline: none;
+    border: 0px;
+    color: blue;
+    /* font-size: 1.4rem; */
+    font-weight: bold;
+    cursor: pointer;
+      
+}
+
+.cardDetaiss{
+    position: relative;
+    text-align: left;
+}
+.dates{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.childCards{
+    /* background-color:#ececf1; */
+    /* width: 50%; */
+    width: 80%;
+    padding: 15px;
+    margin:   5px;
+    /* text-align: right; */
+    /* float: right; */
+    margin-left: auto;
+    margin-right: 0;
+}
+ .childCarsdss{
+    background-color:#ececf1;
+    margin-top: 10px;
+    padding: 10px;border-radius: 10px;
+ }
+ .iconsas{
+    border-radius: 50%;
+ }
