@@ -221,8 +221,8 @@ function App() {
   return (<div className={styles.formBody}  >
        <InputFields state={state} addReplies={updateState}  ref={ref}></InputFields>
         <div  style={{textAlign:"right",cursor:"Pointer", fontSize:"12px"}} ><h4 onClick={sortByDate}>
-        Sort by Date and Time
-          </h4></div>
+        Sort by Date and Time  {asc ? "ASC" : "DSC"}
+          </h4> </div>
        <Comments
         state={state} 
         editReplies={editReply}
