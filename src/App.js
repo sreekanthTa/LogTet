@@ -1,9 +1,11 @@
 import styles from './app.module.css';
 import InputFields from "./components/inputFields";
 import Comments from "./components/comment";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 function App() {
+
+  const ref = useRef();
 
   const[state, setState] = useState([
     //   {Name: 'first freight forwarder', 
@@ -23,9 +25,11 @@ function App() {
     //         CreatedAt:"Sun Aug 09 2022 11:23:07",
     //       }
     //     ]
-    // }
+    // },
+    
   ]);
 
+  const [asc, setAsc] = useState(false);
 
   const updateState = (e) =>{
 
@@ -37,9 +41,13 @@ function App() {
 
       setState([...state,{Name:name.value, Comments:comment.value, CreatedAt:new Date()}])
 
+      ref.current.reset()
+
+
      } else{
       alert("please fill all details")
      }
+
 
     
   }
@@ -183,26 +191,26 @@ function App() {
   },[])
 
   const sortByDate = () => {
+
+
     let newState = [...state];
 
 
     newState?.forEach((e,i)=>{
+
         return newState[i]?.replies?.map(()=>{
-
-
-
-    return   newState[i]?.replies.sort(function compare(a,b){
  
-          return new Date(a.CreatedAt) - new Date(b.CreatedAt);
+        return   newState[i]?.replies.sort(function compare(a,b){
+ 
+          return  asc  ? new Date(a.CreatedAt) - new Date(b.CreatedAt) : new Date(b.CreatedAt) - new Date(a.CreatedAt)
         });
-
-
-        
-
-
-
+ 
       })
     })
+
+    setAsc(!asc)
+
+    console.log("new state",asc)
 
     setState([...newState])
 
@@ -211,7 +219,7 @@ function App() {
   
 
   return (<div className={styles.formBody}  >
-       <InputFields state={state} addReplies={updateState} ></InputFields>
+       <InputFields state={state} addReplies={updateState}  ref={ref}></InputFields>
         <div  style={{textAlign:"right",cursor:"Pointer", fontSize:"12px"}} ><h4 onClick={sortByDate}>
         Sort by Date and Time
           </h4></div>
